@@ -6,32 +6,40 @@ namespace hillclimb {
         leftWheel = std::make_shared<HillClimbCarWheel>(-20.0, -20.0, 10.0);
         rightWheel = std::make_shared<HillClimbCarWheel>(20.0, -20.0, 10.0);
     };
+    
+    void HillClimbCar::updateThrottle(const double dthrottle) {
+        this->throttle += dthrottle;
+    }
+    
+    double HillClimbCar::getTransitionX(const double dt) {
+        return this->throttle;
+    }
             
-    void HillClimbCar::updateVelocityX(double dt) {
+    void HillClimbCar::updateVelocityX(const double dt) {
 
     }
     
-    void HillClimbCar::updatePosY(double dt) {
+    void HillClimbCar::updatePosY(const double dt) {
 
     }
     
-    void HillClimbCar::updateVelocityY(double dt) {
+    void HillClimbCar::updateVelocityY(const double dt) {
 
     }
     
-    void HillClimbCar::updateAccelerations(double dt) {
+    void HillClimbCar::updateAccelerations(const double dt) {
 
     }
     
-    void HillClimbCar::updateAngle(double dt) {
+    void HillClimbCar::updateAngle(const double dt) {
 
     }
     
-    void HillClimbCar::updateAngularVelocity(double dt) {
+    void HillClimbCar::updateAngularVelocity(const double dt) {
 
     }
     
-    void HillClimbCar::updateAngularAcceleration(double dt) {
+    void HillClimbCar::updateAngularAcceleration(const double dt) {
 
     }
     
@@ -41,6 +49,15 @@ namespace hillclimb {
     
     void HillClimbCar::updateWheels(std::shared_ptr<HillClimbRoad> road) {
 
+    }
+    
+    double HillClimbCar::getPositionY() {
+        return this->y;
+    }
+    
+    void HillClimbCar::reset(const double y) {
+        this->y = y;
+        this->throttle = 0.0;
     }
 }
 

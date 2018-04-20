@@ -7,7 +7,6 @@
 #include "HillClimbLayer.h"
 #include "HillClimbUtility.h"
 #include "HillClimbRoad.h"
-// Add missing includes here.
 
 namespace hillclimb {
 
@@ -35,7 +34,8 @@ namespace hillclimb {
         this->carSprite->setAnchorPoint(cocos2d::Vec2(0.5, 0.5));
         this->addChild(this->carSprite, 0);
     
-        //Initialize car field here. Arguments: carStartX, carStartY, spriteScale
+        this->car = std::make_shared<HillClimbCar>(carStartX, carStartY, spriteScale);
+        
         this->road = std::make_shared<HillClimbRoad>(winWidth, winHeight);
         this->road->reset();
         this->generateRoadParts();
@@ -90,29 +90,30 @@ namespace hillclimb {
     void HillClimbLayer::update(float dt) {
         cocos2d::Node::update(dt);
         if (isKeyPressed(cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW)) {
-            this->road->move(10.0);
-            //Speed the car up with the updateThrottle method
+            this->car->updateThrottle(0.5);
         } else if (isKeyPressed(cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW)) {
-            //Put the brake on with the updateThrottle method
+            this->car->updateThrottle(-2.0);
         } else {
-            //Slow the car down with the updateThrottle method
+            this->car->updateThrottle(-0.1);
+        }
+        
+        double transition = this->car->getTransitionX(dt);
+        
+        /*Get car angle. Use std::fmod for it with STRAIGHT_ANGLE as divisor.
+    
+          Check if the car is touching the road AND if its angle is over or below some limit, to determine if it has crashed*/
+        bool crashed = false;
+        
+        if (crashed || transition < -2.0) {
+            this->car->reset(carStartY);
+            this->road->reset();
+        } else {
+            this->road->move(transition);
         }
 
-        /*Get car transition
-          Get car angle. Use std::fmod for it with STRAIGHT_ANGLE as divisor.
-    
-          Check if the car is touching the road AND if its angle is over or below some limit, to determine if it has crashed
-          Check if the car's transition is below some value to determine if it is reversing
-          if the car is either crashed or reversing:
-               Reset the car with carStartY as argument
-               Reset the road
-          else
-               Update the car with road and dt as arguments
-               Move the road with carTransition as argument
-          }*/
         this->deleteRoadParts();
         this->generateRoadParts();
-        //Set carSprite position with setPositionY(y). The argument y should be the y position of the car
+        this->carSprite->setPositionY(this->car->getPositionY());
         //Set sprite rotation with setRotation(angle / STRAIGHT_ANGLE * 180);
     }
 

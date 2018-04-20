@@ -12,10 +12,10 @@ namespace hillclimb {
         void update(std::shared_ptr<HillClimbRoad> road, const double dt);
         void updateThrottle(const double dthrottle);
         double getPositionY();
-        double getTransitionX(double dt);
+        double getTransitionX(const double dt);
         double getAngle();
         bool touchesRoad();
-        void reset();
+        void reset(const double y);
     private:
         const double X_POS;
         const double SCALE;
@@ -32,57 +32,16 @@ namespace hillclimb {
         std::shared_ptr<HillClimbCarWheel> rightWheel;
         //roadPartsTouching
     
-        void updatePosY(double dt);
-        void updateVelocityY(double dt);
-        void updateVelocityX(double dt);
-        void updateAccelerations(double dt);
-        void updateAngle(double dt);
-        void updateAngularVelocity(double dt);
-        void updateAngularAcceleration(double dt);
+        void updatePosY(const double dt);
+        void updateVelocityY(const double dt);
+        void updateVelocityX(const double dt);
+        void updateAccelerations(const double dt);
+        void updateAngle(const double dt);
+        void updateAngularVelocity(const double dt);
+        void updateAngularAcceleration(const double dt);
         void updateRoadPartsTouching();
         void updateWheels(std::shared_ptr<HillClimbRoad> road);
     };
 }
 
-/* includes 
-
-namespace
-
-    class HillClimbCar
-      public
-        HillClimbCar(x, y, scale)
-        update(road, dt)
-        updateThrottle(dthrottle)
-        getPositionY()
-        getTransitionX(dt)
-        getAngle()
-        touchesRoad()
-        reset(y)
-      private
-        X_POS
-        SCALE
-        y
-        v_x
-        v_y
-        a_x
-        a_y
-        angle
-        v_ang
-        a_ang
-        throttle
-        leftWheel
-        rightWheel
-        roadPartsTouching
-    
-        updatePosY(dt)
-        updateVelocityY(dt)
-        updateVelocityX(dt)
-        updateAccelerations(dt)
-        updateAngle(dt)
-        updateAngularVelocity(dt)
-        updateAngularAcceleration(dt)
-        updateRoadPartsTouching()
-        updateWheels(road)
-
-*/
 #endif // __HILLCLIMB_CAR_H__

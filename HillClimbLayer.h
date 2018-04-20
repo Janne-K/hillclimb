@@ -8,7 +8,6 @@
 #include "cocos2d.h"
 #include "HillClimbRoad.h"
 #include "HillClimbCar.h"
-// Add missing includes here
 
 namespace hillclimb {
 
@@ -23,8 +22,7 @@ namespace hillclimb {
         static std::map<cocos2d::EventKeyboard::KeyCode,
             std::chrono::high_resolution_clock::time_point> keys;
     
-        //Car field;
-        //Road field;
+        std::shared_ptr<HillClimbCar> car;
         std::shared_ptr<HillClimbRoad> road;
         cocos2d::Sprite* carSprite; // autoreleased by cocos2d so no need to delete
         double carStartY;
