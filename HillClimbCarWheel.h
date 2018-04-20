@@ -1,3 +1,30 @@
+#ifndef __HILLCLIMB_CARWHEEL_H__
+#define __HILLCLIMB_CARWHEEL_H__
+
+#include <HillClimbUtility.h>
+#include <HillClimbRoad.h>
+
+namespace hillclimb {
+    struct RoadPartTouching {
+        double wheelSubmersion;
+        double slope;
+    };
+    class HillClimbCarWheel {
+    public:
+        HillClimbCarWheel(double x_offset, double y_offset, double radius);
+        double getForceX();
+        double getForceY();
+        //getRoadPartsTouching()
+        void updateState(double throttle, Coordinates carPos, double carAngle,
+                std::shared_ptr<HillClimbRoad> road);
+        void clearPreviousState();
+    private:
+        const Coordinates OFFSET;
+        const double RADIUS;
+    };
+}
+    
+
 /* Guards
   
 Includes
@@ -34,3 +61,4 @@ Namespace
 
 Guards end
 */
+#endif // __HILLCLIMB_CARWHEEL_H__

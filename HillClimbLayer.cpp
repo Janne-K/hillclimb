@@ -37,7 +37,6 @@ namespace hillclimb {
     
         //Initialize car field here. Arguments: carStartX, carStartY, spriteScale
         this->road = std::make_shared<HillClimbRoad>(winWidth, winHeight);
-        std::cout << carStartY << "\n";
         this->road->reset();
         this->generateRoadParts();
 

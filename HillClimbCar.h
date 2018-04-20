@@ -28,8 +28,8 @@ namespace hillclimb {
         double v_ang;
         double a_ang;
         double throttle;
-        //std::shared_ptr<HillClimbCarWheel> leftWheel;
-        //std::shared_ptr<HillClimbCarWheel> rightWheel;
+        std::shared_ptr<HillClimbCarWheel> leftWheel;
+        std::shared_ptr<HillClimbCarWheel> rightWheel;
         //roadPartsTouching
     
         void updatePosY(double dt);

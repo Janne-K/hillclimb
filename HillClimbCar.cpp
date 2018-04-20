@@ -1,3 +1,49 @@
+#include "HillClimbCar.h"
+
+namespace hillclimb {
+    HillClimbCar::HillClimbCar(const double x, const double y, const double scale)
+            : X_POS(x), y(y), SCALE(scale) {
+        leftWheel = std::make_shared<HillClimbCarWheel>(-20.0, -20.0, 10.0);
+        rightWheel = std::make_shared<HillClimbCarWheel>(20.0, -20.0, 10.0);
+    };
+            
+    void HillClimbCar::updateVelocityX(double dt) {
+
+    }
+    
+    void HillClimbCar::updatePosY(double dt) {
+
+    }
+    
+    void HillClimbCar::updateVelocityY(double dt) {
+
+    }
+    
+    void HillClimbCar::updateAccelerations(double dt) {
+
+    }
+    
+    void HillClimbCar::updateAngle(double dt) {
+
+    }
+    
+    void HillClimbCar::updateAngularVelocity(double dt) {
+
+    }
+    
+    void HillClimbCar::updateAngularAcceleration(double dt) {
+
+    }
+    
+    void HillClimbCar::updateRoadPartsTouching() {
+
+    }
+    
+    void HillClimbCar::updateWheels(std::shared_ptr<HillClimbRoad> road) {
+
+    }
+}
+
 /*
 
 Includes

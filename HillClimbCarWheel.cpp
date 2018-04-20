@@ -1,3 +1,9 @@
+#include "HillClimbCarWheel.h"
+
+namespace hillclimb {
+    HillClimbCarWheel::HillClimbCarWheel(double x_offset, double y_offset, double radius)
+            : OFFSET({x_offset, y_offset}), RADIUS(radius) {};
+}
 /* Includes
 
 namespace

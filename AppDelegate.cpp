@@ -35,6 +35,7 @@ namespace hillclimb {
         glview->setDesignResolutionSize(DESIGN_RESOLUTION_SIZE.width, DESIGN_RESOLUTION_SIZE.height, ResolutionPolicy::NO_BORDER);
 
         auto frameSize = glview->getFrameSize();
+        
         if (frameSize.height > MEDIUM_RESOLUTION_SIZE.height) {        
             director->setContentScaleFactor(MIN(LARGE_RESOLUTION_SIZE.height / DESIGN_RESOLUTION_SIZE.height,
                                                 LARGE_RESOLUTION_SIZE.width / DESIGN_RESOLUTION_SIZE.width));
