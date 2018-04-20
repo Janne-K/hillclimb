@@ -1,6 +1,7 @@
-/* Guards
+#ifndef __HILLCLIMB_CAR_H__
+#define __HILLCLIMB_CAR_H__
 
-includes 
+/* includes 
 
 namespace
 
@@ -40,5 +41,5 @@ namespace
         updateRoadPartsTouching()
         updateWheels(road)
 
-Guards end
 */
+#endif // __HILLCLIMB_CAR_H__

@@ -6,6 +6,7 @@
 #include "cocos2d.h"
 #include "HillClimbLayer.h"
 #include "HillClimbUtility.h"
+#include "HillClimbRoad.h"
 // Add missing includes here.
 
 namespace hillclimb {
@@ -36,6 +37,8 @@ namespace hillclimb {
     
         //Initialize car field here. Arguments: carStartX, carStartY, spriteScale
         //Initialize road field here. Arguments: winWidth, winHeight
+        this->road = std::make_shared<HillClimbRoad>(winWidth, winHeight);
+        //this->road = std::make_unique<HillClimbRoad>(winWidth, winHeight);
         this->generateRoadParts();
 
         auto eventListener = cocos2d::EventListenerKeyboard::create();
@@ -61,12 +64,12 @@ namespace hillclimb {
     }
 
     void HillClimbLayer::generateRoadParts() {
-        //MIN_ROAD_SIZE = 2
+        const int MIN_ROAD_SIZE = 2;
         //get part count of road
         //get part coordinate pairs of road
     
-        //if partCount < MIN_ROAD_SIZE
-            //return
+        //if (partCount < MIN_ROAD_SIZE)
+            //return;
 
         auto drawNode = cocos2d::DrawNode::create();
         drawNode->setName("drawNode");

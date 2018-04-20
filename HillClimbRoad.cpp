@@ -1,3 +1,28 @@
+#include "HillClimbRoad.h"
+
+namespace hillclimb {
+    const double ROAD_LENGTH_FACTOR = 2.0;
+    
+    HillClimbRoad::HillClimbRoad(const double winWidth, const double winHeight) {
+        
+    }
+    
+    int HillClimbRoad::getPartCount() {
+        return static_cast<int>(this->partCoords.size());
+    }
+    
+    std::vector <Coordinates> HillClimbRoad::getPartCoords() {
+        return this->partCoords;
+    }
+    
+    void HillClimbRoad::addPart(double x, double y) {
+        Coordinates partCoord = {
+            .x = x,
+            .y = y
+        };
+        this->partCoords.push_back(partCoord);
+    }
+}
 /* Includes
 
 namespace
