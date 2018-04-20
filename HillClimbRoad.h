@@ -6,27 +6,26 @@
 #include <HillClimbUtility.h>
 
 namespace hillclimb {
+    extern const int MAX_PART_COUNT;
+    extern const double X_ROAD_START;
+    extern const double Y_ROAD_START;
+    extern const double DEFAULT_ROAD_LENGTH;
+    
     class HillClimbRoad {
     public:
-        /*
-        const int MAX_PART_COUNT = 100;
-        const double X_ROAD_START = 0.0;
-        const double Y_ROAD_START = 300.0;
-        const double DEFAULT_ROAD_LENGTH = 20.0;*/
         
         HillClimbRoad(const double winWidth, const double winHeight);
         void move(const double x);
         std::vector <Coordinates> getPartCoords();
         int getPartCount();
-        void addPart(double x, double y);
         void reset();
     private:
        std::vector<Coordinates> partCoords;
-       
+       void addPart(double x, double y);
        double calculateNewPartX(const double prevPartX);
        double calculateNewPartY();
        void generatePartsAhead();
-       //deletePartsBehind()
+       void deletePartsBehind();
     };
 }
 /*

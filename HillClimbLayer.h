@@ -7,6 +7,7 @@
 
 #include "cocos2d.h"
 #include "HillClimbRoad.h"
+#include "HillClimbCar.h"
 // Add missing includes here
 
 namespace hillclimb {
