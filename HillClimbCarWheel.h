@@ -1,6 +1,7 @@
 #ifndef __HILLCLIMB_CARWHEEL_H__
 #define __HILLCLIMB_CARWHEEL_H__
 
+#include <iostream>
 #include <HillClimbUtility.h>
 #include <HillClimbRoad.h>
 
@@ -14,7 +15,7 @@ namespace hillclimb {
         HillClimbCarWheel(double x_offset, double y_offset, double radius);
         double getForceX();
         double getForceY();
-        //getRoadPartsTouching()
+        std::vector<RoadPartTouching> getRoadPartsTouching();
         void updateState(double throttle, Coordinates carPos, double carAngle,
                 std::shared_ptr<HillClimbRoad> road);
         void clearPreviousState();
@@ -26,13 +27,13 @@ namespace hillclimb {
         double y;
         double force_x;
         double force_y;
-        //roadPartsTouching
+        std::vector<RoadPartTouching> roadPartsTouching;
     
         bool touchesRoad();
         void updatePosX(const double carX, const double carAngle);
         void updatePosY(const double carY, const double carAngle);
         void updateRoadPartsTouching(std::shared_ptr<HillClimbRoad> road);
-        void updateForces(const double throttle);
+        void updateForces(double throttle);
     };
 }
 

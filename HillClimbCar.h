@@ -30,7 +30,7 @@ namespace hillclimb {
         double throttle;
         std::shared_ptr<HillClimbCarWheel> leftWheel;
         std::shared_ptr<HillClimbCarWheel> rightWheel;
-        //roadPartsTouching
+        std::vector<RoadPartTouching> roadPartsTouching;
     
         void updatePosY(const double dt);
         void updateVelocityY(const double dt);

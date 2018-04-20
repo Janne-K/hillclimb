@@ -3,7 +3,7 @@
 namespace hillclimb {
     const int MAX_PART_COUNT = 10;
     const double X_ROAD_START = 0.0;
-    const double Y_ROAD_START = 600.0;
+    const double Y_ROAD_START = 550.0;
     const double DEFAULT_ROAD_LENGTH = 200.0;
     const double ROAD_LENGTH_FACTOR = 2.0;
     

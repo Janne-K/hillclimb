@@ -90,12 +90,14 @@ namespace hillclimb {
     void HillClimbLayer::update(float dt) {
         cocos2d::Node::update(dt);
         if (isKeyPressed(cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW)) {
-            this->car->updateThrottle(0.5);
+            this->car->updateThrottle(100.0);
         } else if (isKeyPressed(cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW)) {
-            this->car->updateThrottle(-2.0);
+            this->car->updateThrottle(-200.0);
         } else {
-            this->car->updateThrottle(-0.1);
+            this->car->updateThrottle(-10.0);
         }
+        
+        this->car->update(road, dt);
         
         double transition = this->car->getTransitionX(dt);
         
