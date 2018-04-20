@@ -18,11 +18,12 @@ namespace hillclimb {
         void move(const double x);
         std::vector <Coordinates> getPartCoords();
         int getPartCount();
+        void addPart(double x, double y);
         void reset();
     private:
        std::vector<Coordinates> partCoords;
-       void addPart(double x, double y);
-       //calculateNewPartX(prevPartX)
+       
+       double calculateNewPartX(const double prevPartX);
        double calculateNewPartY();
        void generatePartsAhead();
        //deletePartsBehind()
